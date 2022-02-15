@@ -1,9 +1,9 @@
 settings <- list2env(list(
   homeDir = "~/.inwt/MpiIsoApi",
-  config = "mpi-iso-api-test-config.R",
+  config = "mpi-iso-api-config.R",
   host = "127.0.0.1",
   port = 3306,
-  dbname = "mpiIsoTest"
+  dbname = "mpiIso"
 ))
 
 .onLoad <- function(libname, pkgname) {
