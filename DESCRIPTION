@@ -1,0 +1,26 @@
+Package: MpiIsoApi
+Title: API for the MPI Iso Database
+Description: Retrieve data from the MPI Iso Database.
+Version: 0.1.7
+Author: INWT Statistics GmbH
+Maintainer: INWT <info@inwt-statistics.de>
+Copyright: (c) 2018 INWT Statistics GmbH. All Rights Reserved.
+License: closed
+Depends:
+  R (>= 3.4.0)
+Imports:
+  dbtools (>= 0.2.9),
+  dplyr (>= 0.7.4),
+  futile.logger (>= 1.4.0),
+  httpuv,
+  modules (>= 0.5.0),
+  plumber (>= 0.3.2),
+  rlang,
+  tidyr (>= 0.8.1)
+Suggests:
+  jsonlite (>= 1.5),
+  lintr (>= 1.0.0),
+  testthat (>= 1.0.2)
+LazyData: TRUE
+RoxygenNote: 6.1.0
+Encoding: UTF-8

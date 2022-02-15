@@ -1,0 +1,7 @@
+^\.dockerignore$
+^Dockerfile$
+^lib$
+^scratch.R$
+^.inwt$
+^.*\.Rproj$
+^\.Rproj\.user$
