@@ -32,7 +32,7 @@ selectCategory <- function(data, category){
   mapping <- sendQueryCache("mapping")
   fields <- mapping %>%
     filter(category %in% !!category) %>%
-    pull(shiny) %>%
+    pull(.data$shiny) %>%
     intersect(names(data))
 
   data %>%
