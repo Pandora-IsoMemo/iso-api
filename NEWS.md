@@ -4,7 +4,7 @@
 
 ### New Features
 - Option to add a new parameter `mappingId` to the url of an endpoint, e.g. `&mappingId=IsoMemo`.
-An endpoint will provide data for the given `mappingId`, where the default `mappingId` is "IsoMemo".
+An endpoint will provide data for the given `mappingId`, where the default `mappingId` is "IsoMemo". (#4)
 - `mappingId` can be used with all three endpoints:
   - https://isomemodb.com/testapi/v1/iso-data
   - https://isomemodb.com/testapi/v1/dbsources
