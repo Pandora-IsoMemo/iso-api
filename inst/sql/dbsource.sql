@@ -1,1 +1,1 @@
-SELECT DISTINCT `source` AS `dbsource` FROM data;
+SELECT DISTINCT `source` AS `dbsource` FROM {{ dbtools::sqlAssertChar(mappingId) }}_data;
