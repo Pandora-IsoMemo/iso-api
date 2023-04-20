@@ -1,4 +1,5 @@
 getDbsource <- function(mappingId = "IsoMemo") {
+  # only accepts a single mappingId
   sendQueryCache("dbsource", mappingId = mappingId)$dbsource
 }
 
