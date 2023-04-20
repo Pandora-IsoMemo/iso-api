@@ -1,3 +1,3 @@
-getMapping <- function() {
-  Result(list(), mapping = sendQueryCache("mapping"))
+getMapping <- function(mappingId = "IsoMemo") {
+  Result(list(), mapping = sendQueryCache("mapping", mappingId = mappingId))
 }

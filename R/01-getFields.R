@@ -1,5 +1,5 @@
-getFields <- function() {
-  data <- sendQueryCache("fields")
+getFields <- function(mappingId = "IsoMemo") {
+  data <- sendQueryCache("fields", mappingId = mappingId)
 
   c(
     names(data[[1]]),
