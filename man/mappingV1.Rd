@@ -4,7 +4,10 @@
 \alias{mappingV1}
 \title{Backend V1 of the mapping API}
 \usage{
-mappingV1()
+mappingV1(mappingId = "IsoMemo")
+}
+\arguments{
+\item{mappingId}{id to select one of the mappings, e.g. "IsoMemo"}
 }
 \description{
 Backend V1 of the mapping API
