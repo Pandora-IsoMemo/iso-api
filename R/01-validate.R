@@ -28,7 +28,7 @@ validate  <- modules::module({
   mappingId <- validate(
     function(mappingId) sprintf("got mappingId: '%%s' expected a single one in (%s)", collapse(getMappingIds())),
     function(val, mappingId) {
-      length(val) <= 1 && (val %in% getMappingIds())
+      length(val) == 1 && (val %in% getMappingIds())
     }
   )
 

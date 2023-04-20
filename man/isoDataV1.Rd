@@ -4,7 +4,7 @@
 \alias{isoDataV1}
 \title{Backend V1 of the API}
 \usage{
-isoDataV1(dbsource, category, field)
+isoDataV1(dbsource, category, field, mappingId = "IsoMemo")
 }
 \arguments{
 \item{dbsource}{(character) filter for database proider}
@@ -12,6 +12,8 @@ isoDataV1(dbsource, category, field)
 \item{category}{(character) filter for field category}
 
 \item{field}{(character) filter for fields}
+
+\item{mappingId}{id to select one of the mappings, e.g. "IsoMemo"}
 }
 \description{
 Backend V1 of the API
