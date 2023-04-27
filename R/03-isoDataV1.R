@@ -12,7 +12,7 @@ isoDataV1 <- function(dbsource, category, field, mappingId = "IsoMemo") {
   res <- step(list(), validateMappingId, mappingId)
   if (is.Error(res)) return(res)
 
-  print(paste("getDbsource(...):", getDbsource(mappingId = mappingId)))
+  print(paste("getDbsource(...):", collapse(getDbsource(mappingId = mappingId))))
   dbsource <- dbsourceSanitize(dbsource, default = getDbsource(mappingId = mappingId))
   print(paste("dbsourceSana:", dbsource))
   category <- categorySanitize(category, default = NULL)
