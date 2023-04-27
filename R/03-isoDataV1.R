@@ -13,7 +13,6 @@ isoDataV1 <- function(dbsource, category, field, mappingId = "IsoMemo") {
   if (is.Error(res)) return(res)
 
   dbsource <- dbsourceSanitize(dbsource, default = getDbsource(mappingId = mappingId))
-  print(paste("dbsourceSana:", dbsource))
   category <- categorySanitize(category, default = NULL)
   field <- fieldSanitize(field, default = getFields(mappingId = mappingId))
 
@@ -30,7 +29,7 @@ isoDataV1 <- function(dbsource, category, field, mappingId = "IsoMemo") {
   res <- step(res, validateCategory, category, mappingId)
   print(paste("res:", res))
   res <- step(res, validateField, field, mappingId)
-  print(paste("res:", res))
+  print(paste("res before getIsoData:", res))
   # only if validation succeeded getIsoData() will be executed:
   res <- step(res, getIsoData, dbsource, category, field, mappingId)
   print(paste("res:", res))

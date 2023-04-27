@@ -1,5 +1,5 @@
 input <- function(x, default, sanitize = sanitizeInput) {
-  if (missing(x) || x == "Do not exist") default else sanitize(x)
+  if (missing(x)) default else sanitize(x)
 }
 
 matchValues <- function(x, y) {
