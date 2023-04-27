@@ -1,5 +1,5 @@
 getIsoData <- function(x, dbsource, category, field, mappingId = "IsoMemo") {
-  print(paste(dbsource, "---", mappingId))
+  print(paste(collapse(dbsource), "---", mappingId))
   res <- sendQueryCache("isoData", dbsource = dbsource, mappingId = mappingId)
   print(res)
   data <- res[[1]]
