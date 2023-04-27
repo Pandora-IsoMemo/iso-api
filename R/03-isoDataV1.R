@@ -7,6 +7,10 @@
 #'
 #' @export
 isoDataV1 <- function(dbsource, category, field, mappingId = "IsoMemo") {
+
+  testSql <- getMappingAll()
+  print(testSql)
+
   mappingId <- mappingIdSanitize(mappingId, default = "IsoMemo")
   print(paste("mappingId:", mappingId))
   res <- step(list(), validateMappingId, mappingId)
