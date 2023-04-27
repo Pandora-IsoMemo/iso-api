@@ -16,7 +16,7 @@ getIsoData <- function(x, dbsource, category, field, mappingId = "IsoMemo") {
   data <- data %>%
     select(field)
 
-  res <- sendQueryCache("lastUpdate")
+  res <- sendQueryCache("lastUpdate", mappingId = mappingId)
   lastUpdate <- res$lastUpdate
 
   Result(x, isodata = data, updated = lastUpdate)
