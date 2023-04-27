@@ -3,5 +3,5 @@ getMappingIds <- function() {
 }
 
 getMappingAll <- function() {
-  Result(list(), mapping = sendQueryCache("mappingAll"))
+  Result(list(), mapping = sendQueryCache("mappingsAll"))
 }
