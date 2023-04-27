@@ -12,17 +12,14 @@ isoDataV1 <- function(dbsource, category, field, mappingId = "IsoMemo") {
   print(testSql)
 
   mappingId <- mappingIdSanitize(mappingId, default = "IsoMemo")
-  print(paste("mappingId:", mappingId))
   res <- step(list(), validateMappingId, mappingId)
-  print(paste("res:", res))
   if (is.Error(res)) return(res)
 
+  print(paste("getDbsource(...):", getDbsource(mappingId = mappingId)))
   dbsource <- dbsourceSanitize(dbsource, default = getDbsource(mappingId = mappingId))
-  print(paste("dbsource:", dbsource))
   category <- categorySanitize(category, default = NULL)
-  print(paste("category:", category))
   field <- fieldSanitize(field, default = getFields(mappingId = mappingId))
-  print(paste("field:", field))
+
   logging("Got request with: dbsource='%s'", collapse(dbsource))
   if (!is.null(category))
     logging("category='%s'", collapse(category))
