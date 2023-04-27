@@ -51,5 +51,5 @@ mappingIdSanitize <- function(mappingId, default){
     matchValues(tolower(x), getMappingIds())
   }
 
-  input(field, default, sanitize)
+  input(mappingId, default, sanitize)
 }
