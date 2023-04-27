@@ -25,9 +25,7 @@ isoDataV1 <- function(dbsource, category, field, mappingId = "IsoMemo") {
 
 
   res <- step(res, validateDBSource, dbsource, mappingId)
-  print(paste("res:", res))
   res <- step(res, validateCategory, category, mappingId)
-  print(paste("res:", res))
   res <- step(res, validateField, field, mappingId)
   print(paste("res before getIsoData:", res))
   # only if validation succeeded getIsoData() will be executed:

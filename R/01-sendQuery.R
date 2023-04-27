@@ -1,5 +1,6 @@
 sendQueryCache <- function(query, ...) {
   query <- dbtools::Query(getQuery(query), ...)
+  print(query)
   dbtools::sendQuery(CacheDB(), query, retries = 4, intSleep = 4)
 }
 
