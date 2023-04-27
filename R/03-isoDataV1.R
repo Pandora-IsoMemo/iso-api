@@ -8,15 +8,14 @@
 #' @export
 isoDataV1 <- function(dbsource, category, field, mappingId = "IsoMemo") {
 
-  testSql <- getMappingAll()
-  print(testSql)
-
   mappingId <- mappingIdSanitize(mappingId, default = "IsoMemo")
   res <- step(list(), validateMappingId, mappingId)
   if (is.Error(res)) return(res)
 
   print(paste("getDbsource(...):", getDbsource(mappingId = mappingId)))
+  print(paste("dbsource:", dbsource))
   dbsource <- dbsourceSanitize(dbsource, default = getDbsource(mappingId = mappingId))
+  print(paste("dbsourceSana:", dbsource))
   category <- categorySanitize(category, default = NULL)
   field <- fieldSanitize(field, default = getFields(mappingId = mappingId))
 
