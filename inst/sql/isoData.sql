@@ -4,9 +4,8 @@ SELECT *
 
 SELECT *
   FROM `extraNumeric`
-  WHERE source IN {{ dbtools::sqlInAlnums(dbsource) }} AND mappingId IN {{ dbtools::sqlInAlnums(mappingId) }};
+  WHERE source IN {{ dbtools::sqlInAlnums(dbsource) }}; -- AND mappingId IN {{ dbtools::sqlInAlnums(mappingId) }};
 
 SELECT *
   FROM `extraCharacter`
-  WHERE source IN {{ dbtools::sqlInAlnums(dbsource) }} AND mappingId IN {{ dbtools::sqlInAlnums(mappingId) }};
-
+  WHERE source IN {{ dbtools::sqlInAlnums(dbsource) }}; -- AND mappingId IN {{ dbtools::sqlInAlnums(mappingId) }};
