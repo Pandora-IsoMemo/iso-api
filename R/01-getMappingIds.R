@@ -1,3 +1,3 @@
 getMappingIds <- function() {
-  Result(list(), mappings = sendQueryCache("mappings"))
+  sendQueryCache("mappings")$dbmappings
 }

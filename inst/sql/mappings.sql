@@ -1,1 +1,1 @@
-SELECT DISTINCT `mappingId` AS `mappings` FROM mapping;
+SELECT DISTINCT `mappingId` AS `dbmappings` FROM `mapping`;
