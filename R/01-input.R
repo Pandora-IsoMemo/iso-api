@@ -1,5 +1,6 @@
 input <- function(x, default, sanitize = sanitizeInput) {
-  print(paste("missing(x):", missing(x), "default: ", default))
+  print(paste("missing(x):", missing(x), "default: ", collapse(default)))
+  if (!missing(x)) print(paste("x:", x))
   if (missing(x)) default else sanitize(x)
 }
 
