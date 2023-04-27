@@ -1,7 +1,5 @@
 getIsoData <- function(x, dbsource, category, field, mappingId = "IsoMemo") {
-  print(paste(collapse(dbsource), "---", mappingId))
   res <- sendQueryCache("isoData", dbsource = dbsource, mappingId = mappingId)
-  print(res)
   data <- res[[1]]
   extraNumeric <- spread(res[[2]], .data$variable, .data$value)
   extraCharacter <- spread(res[[3]], .data$variable, .data$value)
