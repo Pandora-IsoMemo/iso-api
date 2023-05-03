@@ -12,7 +12,7 @@ Imports:
   dbtools (>= 0.2.9),
   dplyr (>= 0.7.4),
   futile.logger (>= 1.4.0),
-  httpuv (>= 1.6.9),
+  httpuv,
   modules (>= 0.5.0),
   plumber (>= 0.3.2),
   rlang,
