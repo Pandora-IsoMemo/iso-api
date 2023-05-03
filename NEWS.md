@@ -10,3 +10,4 @@ An endpoint will provide data for the given `mappingId`, where the default `mapp
   - https://isomemodb.com/testapi/v1/dbsources
   - https://isomemodb.com/testapi/v1/mapping
 - Checks to ensure correctness of the new parameter `mappingId`.
+
