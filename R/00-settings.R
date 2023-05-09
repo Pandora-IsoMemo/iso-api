@@ -1,6 +1,6 @@
 settings <- list2env(list(
   homeDir = "~/.inwt/MpiIsoApi",
-  config = "mpi-iso-api-config.R",
+  config = "mpi-iso-api-config-file.R",
   port = 3306,
   dbname = "mpiIsoTest"
 ))
