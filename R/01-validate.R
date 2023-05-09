@@ -1,51 +1,57 @@
 validate  <- modules::module({
 
-  validate <- function(msg, fun) {
-    function(x, val, ...) {
-      if (fun(val, ...)) x
-      else Error(400, sprintf(msg, val))
+  validate <- function(msgFun, fun) {
+    function(x, val, mappingId = "IsoData", ...) {
+      if (fun(val, mappingId, ...)) x
+      else Error(400, sprintf(msgFun(mappingId), val))
     }
   }
 
   timeFormat <- validate(
-    "got time: %s expected: 'YYYY-MM-DDTHH:MM:SS'",
-    .validateStartTimeFormat <- function(val) {
+    function(mappingId) "got time: %s expected: 'YYYY-MM-DDTHH:MM:SS'",
+    .validateStartTimeFormat <- function(val, mappingId) {
       grepl(dateTimeRegEx, val)
     })
 
   integerFormat <- validate(
-    "got value: %s expected: integer",
-    function(val) {
+    function(mappingId) "got value: %s expected: integer",
+    function(val, mappingId) {
       grepl("^[0-9]+$", val)
     })
 
   integerInRange <- validate(
-    "got range: %s expected: 1 < integer 1000 ?",
-    function(val) {
+    function(mappingId) "got range: %s expected: 1 < integer 1000 ?",
+    function(val, mappingId) {
       grepl("^[1-9][0-9]{0,2}$", val)
     })
 
+  mappingId <- validate(
+    function(mappingId) sprintf("got mappingId: '%%s' expected a single one in (%s)", collapse(getMappingIds())),
+    function(val, mappingId) {
+      length(val) == 1 && (val %in% getMappingIds())
+    }
+  )
+
   dbsource <- validate(
-    sprintf("got dbsource: '%%s' expected one in (%s)", collapse(getDbsource())),
-    function(val) {
-      all(val %in% getDbsource())
+    function(mappingId) sprintf("got dbsource: '%%s' expected one in (%s)", collapse(getDbsource(mappingId = mappingId))),
+    function(val, mappingId) {
+      all(val %in% getDbsource(mappingId = mappingId))
     }
   )
 
   category <- validate(
-    sprintf("got category: '%%s' expected one in (%s)", collapse(getCategories())),
-    function(val) {
-      all(val %in% getCategories())
+    function(mappingId) sprintf("got category: '%%s' expected one in (%s)", collapse(getCategories(mappingId = mappingId))),
+    function(val, mappingId) {
+      all(val %in% getCategories(mappingId = mappingId))
     }
   )
 
   field <- validate(
-    sprintf("got field: '%%s' expected one in (%s)", collapse(getFields())),
-    function(val) {
-      all(val %in% getFields())
+    function(mappingId) sprintf("got field: '%%s' expected one in (%s)", collapse(getFields(mappingId = mappingId))),
+    function(val, mappingId) {
+      all(val %in% getFields(mappingId = mappingId))
     }
   )
-
 
   dateRegEx <- "[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])"
   timeRegEx <- "([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]"
