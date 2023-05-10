@@ -7,7 +7,7 @@
 mappingV1(mappingId)
 }
 \arguments{
-\item{mappingId}{optional id to select one of the mappings, default is "IsoMemo"}
+\item{mappingId}{(character) optional id to select one of the mappings, default is "IsoMemo"}
 }
 \description{
 Backend V1 of the mapping API
