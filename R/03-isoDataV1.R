@@ -1,12 +1,12 @@
 #' Backend V1 of the API
 #'
+#' @param mappingId id to select one of the mappings, e.g. "IsoMemo"
 #' @param dbsource (character) filter for database proider
 #' @param category (character) filter for field category
 #' @param field (character) filter for fields
-#' @param mappingId id to select one of the mappings, e.g. "IsoMemo"
 #'
 #' @export
-isoDataV1 <- function(dbsource, category, field, mappingId = "IsoMemo") {
+isoDataV1 <- function(mappingId = "IsoMemo", dbsource, category, field) {
 
   mappingId <- mappingIdSanitize(mappingId, default = "IsoMemo")
   res <- step(list(), validateMappingId, mappingId)
