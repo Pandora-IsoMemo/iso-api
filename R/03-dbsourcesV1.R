@@ -1,8 +1,8 @@
 #' Backend V1 of the dbsources API
 #'
-#' @param mappingId id to select one of the mappings, e.g. "IsoMemo"
+#' @param mappingId optional id to select one of the mappings, default is "IsoMemo"
 #' @export
-dbsourcesV1 <- function(mappingId = "IsoMemo") {
+dbsourcesV1 <- function(mappingId) {
   mappingId <- mappingIdSanitize(mappingId, default = "IsoMemo")
 
   logging("Got request on v1/dbsources with: mappingId='%s'", collapse(mappingId))

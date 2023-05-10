@@ -4,10 +4,10 @@
 \alias{dbsourcesV1}
 \title{Backend V1 of the dbsources API}
 \usage{
-dbsourcesV1(mappingId = "IsoMemo")
+dbsourcesV1(mappingId)
 }
 \arguments{
-\item{mappingId}{id to select one of the mappings, e.g. "IsoMemo"}
+\item{mappingId}{optional id to select one of the mappings, default is "IsoMemo"}
 }
 \description{
 Backend V1 of the dbsources API

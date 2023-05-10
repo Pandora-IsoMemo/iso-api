@@ -4,8 +4,8 @@
 
 #* @get /v1/iso-data
 #* @serializer unboxedJSON
-isoDataV1 <- function(res, mappingId, dbsource, category, field) {
-  out <- MpiIsoApi::wrapCall(MpiIsoApi::isoDataV1(mappingId, dbsource, category, field))
+isoDataV1 <- function(res, dbsource, category, field, mappingId) {
+  out <- MpiIsoApi::wrapCall(MpiIsoApi::isoDataV1(dbsource, category, field, mappingId))
   res$status <- out$status
   out
 }
