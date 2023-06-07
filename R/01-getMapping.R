@@ -1,4 +1,4 @@
-getMapping <- function(mappingId = "IsoMemo") {
+getMapping <- function(x, mappingId = "IsoMemo") {
   # only accepts a single mappingId
-  Result(list(), mapping = sendQueryCache("mapping", mappingId = mappingId))
+  Result(x, mapping = sendQueryCache("mapping", mappingId = mappingId))
 }

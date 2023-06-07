@@ -6,10 +6,9 @@
 dbsourcesV1 <- function(mappingId) {
 
   mappingId <- mappingIdSanitize(mappingId, default = "IsoMemo")
+  logging("Got request on v1/dbsources with: mappingId='%s'", collapse(mappingId))
   res <- step(list(), validateMappingId, mappingId)
   if (is.Error(res)) return(res)
-
-  logging("Got request on v1/dbsources with: mappingId='%s'", collapse(mappingId))
 
   # only if validation succeeded getDbsourceList() will be executed:
   res <- step(res, getDbsourceList, mappingId)
