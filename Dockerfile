@@ -23,10 +23,10 @@ RUN apt-get update && apt-get install -y \
     mirror_url <- create_mirror_url(mirror_date); \
     cat(mirror_url); \
     q(status = 0)' > /tmp/mirror_url.txt \
-    url=$(cat /tmp/mirror_url.txt) \
+    && url=$(cat /tmp/mirror_url.txt) \
     && sed -i "/MRAN/ c\options(repos = c(CRAN = \"${url}\"))" /usr/local/lib/R/etc/Rprofile.site \
     && rm /tmp/mirror_url.txt \
-    installPackage
+    && installPackage
 
 EXPOSE 8001
 
