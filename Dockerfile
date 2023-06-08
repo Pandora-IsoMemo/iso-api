@@ -3,7 +3,7 @@ FROM inwt/r-batch:3.5.1
 ADD . .
 
 RUN apt-get update && apt-get install -y curl \
-    Rscript -e \
+    && Rscript -e \
     'create_mirror_url <- function(date) { paste0("https://packagemanager.posit.co/cran/", format(date, "%Y-%m-%d")) }; \
     check_if_mirror_is_available <- function(date) { url <- create_mirror_url(date); \
                                                   stat <- system(paste0("curl -s -o /dev/null -w \"%{http_code}\" ", url, "/src/contrib/PACKAGES"), intern=TRUE, ignore.stderr=TRUE, wait = TRUE); \
