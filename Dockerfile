@@ -1,8 +1,10 @@
-FROM inwt/r-batch:3.5.1
+FROM inwt/r-batch:4.2.1
 
 ADD . .
 
-RUN apt-get update && apt-get install -y curl \
+RUN apt-get update && apt-get install -y \
+    libsodium-dev \
+    curl \
     && Rscript -e \
     'create_mirror_url <- function(date) { paste0("https://packagemanager.posit.co/cran/", format(date, "%Y-%m-%d")) }; \
     check_if_mirror_is_available <- function(date) { url <- create_mirror_url(date); \
@@ -21,10 +23,10 @@ RUN apt-get update && apt-get install -y curl \
     mirror_url <- create_mirror_url(mirror_date); \
     cat(mirror_url); \
     q(status = 0)' > /tmp/mirror_url.txt \
-    && url=$(cat /tmp/mirror_url.txt) \
+    url=$(cat /tmp/mirror_url.txt) \
     && sed -i "/MRAN/ c\options(repos = c(CRAN = \"${url}\"))" /usr/local/lib/R/etc/Rprofile.site \
     && rm /tmp/mirror_url.txt \
-    && installPackage
+    installPackage
 
 EXPOSE 8000
 
