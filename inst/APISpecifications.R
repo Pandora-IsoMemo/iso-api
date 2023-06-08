@@ -25,3 +25,11 @@ mappingV1 <- function(res, mappingId) {
   res$status <- out$status
   out
 }
+
+#* @get /v1/mapping-ids
+#* @serializer unboxedJSON
+mappingIdsV1 <- function(res) {
+  out <- MpiIsoApi::wrapCall(MpiIsoApi::mappingIdsV1())
+  res$status <- out$status
+  out
+}

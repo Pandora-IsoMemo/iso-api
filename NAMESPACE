@@ -2,6 +2,7 @@
 
 export(dbsourcesV1)
 export(isoDataV1)
+export(mappingIdsV1)
 export(mappingV1)
 export(serveAPI)
 export(wrapCall)
