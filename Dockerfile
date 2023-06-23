@@ -2,7 +2,9 @@ FROM inwt/r-batch:4.2.1
 
 ADD . .
 
-RUN installPackage
+RUN apt-get update && apt-get install -y \
+    libsodium-dev \
+    && installPackage
 
 EXPOSE 8000
 
