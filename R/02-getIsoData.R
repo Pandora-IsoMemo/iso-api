@@ -27,6 +27,7 @@ getIsoData <- function(x, dbsource, category, field) {
 
 
 selectCategory <- function(data, category){
+  .data <- NULL
   if (is.null(category)) return(data)
 
   mapping <- sendQueryCache("mapping")
