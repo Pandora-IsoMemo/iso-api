@@ -42,8 +42,8 @@ testthat::test_that("Compare tables from main and test databases", {
   }
 
   # Arrange:
-  if (file.exists(settings$config))
-    source(settings$config, settings)
+  if (file.exists(file.path(".inwt", "MpiIsoApi", "mpi-iso-api-config.R")))
+    source(file.path(".inwt", "MpiIsoApi", "mpi-iso-api-config.R"), settings)
   else
     source(file.path(settings$homeDir, "mpi-iso-api-config.R"), settings)
   resMain <- sendQueryCache("isoData",
@@ -54,8 +54,8 @@ testthat::test_that("Compare tables from main and test databases", {
   extraNumericMain <- spread(resMain[[2]], .data$variable, .data$value)
   extraCharacterMain <- spread(resMain[[3]], .data$variable, .data$value)
 
-  if (file.exists(settings$config))
-    source(settings$config, settings)
+  if (file.exists(file.path(".inwt", "MpiIsoApi", "mpi-iso-api-test-config.R")))
+    source(file.path(".inwt", "MpiIsoApi", "mpi-iso-api-test-config.R"), settings)
   else
     source(file.path(settings$homeDir, "mpi-iso-api-test-config.R"), settings)
   resTest <- sendQueryCache("isoData",
