@@ -34,7 +34,6 @@ testthat::test_that("Compare tables from main and test databases", {
     if (length(differentColumns) == 0) {
       return(TRUE)
     } else {
-      browser()
       return(
         sprintf("values on test differ from non-NA values on main for columns %s",
                 paste0(differentColumns, collapse = ", "))
@@ -42,6 +41,7 @@ testthat::test_that("Compare tables from main and test databases", {
     }
   }
 
+  # Arrange:
   source(sprintf("%s/%s", settings$homeDir, "mpi-iso-api-config.R"), settings)
   resMain <- sendQueryCache("isoData",
                             dbsource = c("14CSea", "CIMA", "IntChron", "LiVES"),
@@ -60,8 +60,8 @@ testthat::test_that("Compare tables from main and test databases", {
   extraNumericTest <- spread(resTest[[2]], .data$variable, .data$value)
   extraCharacterTest <- spread(resTest[[3]], .data$variable, .data$value)
 
+  # Act:
   testthat::expect_true(mainEqualToTest(dataMain, dataTest))
   testthat::expect_true(mainEqualToTest(extraNumericMain, extraNumericTest))
-  # currently the next test fails:
-  # testthat::expect_true(mainEqualToTest(extraCharacterMain, extraCharacterTest))
+  testthat::expect_true(mainEqualToTest(extraCharacterMain, extraCharacterTest))
 })
