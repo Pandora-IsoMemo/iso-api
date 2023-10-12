@@ -22,12 +22,13 @@ getIsoData <- function(x, dbsource, category, field, mappingId = "IsoMemo") {
 
 
 selectCategory <- function(data, category, mappingId = "IsoMemo"){
+  shiny <- NULL
   if (is.null(category)) return(data)
 
   mapping <- sendQueryCache("mapping", mappingId = mappingId)
   fields <- mapping %>%
     filter(category %in% !!category) %>%
-    pull(.data$shiny) %>%
+    pull(shiny) %>%
     intersect(names(data))
 
   data %>%

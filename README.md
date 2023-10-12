@@ -33,7 +33,12 @@ On _beta_ version you can use the following parameter:
 
 Example calls:
 
+- IsoData (beta): https://isomemodb.com/testapi/v1/iso-data?mappingId=IsoMemo
 - Databases (beta): https://isomemodb.com/testapi/v1/dbsources?mappingId=IsoMemo
 - Mapping (beta): https://isomemodb.com/testapi/v1/mapping?mappingId=IsoMemo
+
+and available mapping ids are returned with:
+
+- MappingIds (beta): https://isomemodb.com/testapi/v1/mapping-ids
 
 For the production api use /api instead of /testapi
