@@ -3,3 +3,4 @@
 /.inwt/MpiIsoApi/mpi-iso-api-config.R
 /.inwt/MpiIsoApi/mpi-iso-api-config-remote.R
 .Rproj.user
+Jenkinsfile
