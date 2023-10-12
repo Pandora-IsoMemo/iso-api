@@ -6,7 +6,7 @@ sendQueryCache <- function(query, ...) {
 getQuery <- function(query) {
   if (grepl(";$", query)) query
   else file(system.file(
-    sprintf("sql/%s.sql", sub("\\.sql$", "", query, ignore.case = TRUE)),
+    sprintf(file.path("sql","%s.sql"), sub("\\.sql$", "", query, ignore.case = TRUE)),
     package = "MpiIsoApi",
     mustWork = TRUE
   ))
