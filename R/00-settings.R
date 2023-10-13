@@ -13,7 +13,7 @@ settings <- list2env(list(
     if (file.exists(settings$config))
       source(settings$config, settings)
     else
-      source(sprintf("%s/%s", settings$homeDir, settings$config), settings)
+      source(file.path(settings$homeDir, settings$config), settings)
   })
   invisible(NULL)
 }
