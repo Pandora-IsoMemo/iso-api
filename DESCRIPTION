@@ -22,5 +22,5 @@ Suggests:
   lintr (>= 1.0.0),
   testthat (>= 1.0.2)
 LazyData: TRUE
-RoxygenNote: 6.1.0
+RoxygenNote: 7.2.3
 Encoding: UTF-8
