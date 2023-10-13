@@ -5,7 +5,7 @@
 #' @param port (numeric)
 #'
 #' @export
-serveAPI <- function(port = 8001) {
+serveAPI <- function(port = getPort()) {
   apiSpecifications <- system.file(
     "APISpecifications.R",
     package = "MpiIsoApi",
@@ -22,7 +22,7 @@ plumberFix <- R6::R6Class(
   "plumberFix",
   inherit = plumber::plumber,
   public = list(
-    run = function(host = '0.0.0.0', port = 8001, swagger = interactive()) {
+    run = function(host = '0.0.0.0', port = getPort(), swagger = interactive()) {
       # This is a copy of the original run method provided by the authors
       # We need this because they have decided that it is a good idea to change
       # working directories. This is not what we want here.
