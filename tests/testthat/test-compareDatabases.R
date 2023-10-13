@@ -42,6 +42,10 @@ testthat::test_that("Compare tables from main and test databases", {
   }
 
   # Arrange:
+  logging("content of path: system.file: %s", list.files(system.file(file.path("..")),
+                                                         all.files = TRUE,
+                                                         recursive = TRUE,
+                                                         include.dirs = TRUE))
   if (file.exists(file.path(system.file(file.path(".."), package = "MpiIsoApi"), ".inwt", "MpiIsoApi", "mpi-iso-api-config.R"))) {
     source(file.path(system.file(file.path(".."), package = "MpiIsoApi"), ".inwt", "MpiIsoApi", "mpi-iso-api-config.R"), settings)
   } else
