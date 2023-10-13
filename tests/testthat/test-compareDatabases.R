@@ -42,15 +42,12 @@ testthat::test_that("Compare tables from main and test databases", {
   }
 
   # Arrange:
-  cat(sprintf("content of path: system.file: %s",
-              list.files(system.file(file.path("..", ".."), package = "MpiIsoApi"),
-                         all.files = TRUE,
-                         recursive = FALSE,
-                         include.dirs = TRUE) %>% paste0(collapse = ", ")))
-  if (file.exists(file.path(system.file(file.path("..", ".."), package = "MpiIsoApi"), ".inwt", "MpiIsoApi", "mpi-iso-api-config.R"))) {
-    source(file.path(system.file(file.path("..", ".."), package = "MpiIsoApi"), ".inwt", "MpiIsoApi", "mpi-iso-api-config.R"), settings)
+  pathToConfig <- file.path(system.file(file.path("..", ".."), package = "MpiIsoApi"), ".inwt", "MpiIsoApi")
+
+  if (file.exists(file.path(pathToConfig, "mpi-iso-api-test-config"))) {
+    source(file.path(pathToConfig, "mpi-iso-api-test-config"), settings)
   } else
-    source(file.path(settings$homeDir, "mpi-iso-api-config.R"), settings)
+    source(file.path(settings$homeDir, "mpi-iso-api-test-config"), settings)
   resMain <- sendQueryCache("isoData",
                             dbsource = c("14CSea", "CIMA", "IntChron", "LiVES"),
                             mappingId = "IsoMemo")
@@ -59,8 +56,8 @@ testthat::test_that("Compare tables from main and test databases", {
   extraNumericMain <- spread(resMain[[2]], .data$variable, .data$value)
   extraCharacterMain <- spread(resMain[[3]], .data$variable, .data$value)
 
-  if (file.exists(file.path(system.file(file.path("..", ".."), package = "MpiIsoApi"), ".inwt", "MpiIsoApi", "mpi-iso-api-test-config.R")))
-    source(file.path(system.file(file.path("..", ".."), package = "MpiIsoApi"), ".inwt", "MpiIsoApi", "mpi-iso-api-test-config.R"), settings)
+  if (file.exists(file.path(pathToConfig, "mpi-iso-api-test-config.R")))
+    source(file.path(pathToConfig, "mpi-iso-api-test-config.R"), settings)
   else
     source(file.path(settings$homeDir, "mpi-iso-api-test-config.R"), settings)
   resTest <- sendQueryCache("isoData",
