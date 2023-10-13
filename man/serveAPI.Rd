@@ -4,7 +4,7 @@
 \alias{serveAPI}
 \title{Start server and provide API}
 \usage{
-serveAPI(port = getPort())
+serveAPI(port = 8001)
 }
 \arguments{
 \item{port}{(numeric)}
