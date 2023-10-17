@@ -1,4 +1,4 @@
 # port for test API (beta):
-PORT=8001
+#PORT=8001
 # port for main API (main):
 PORT_DEFAULT=8000

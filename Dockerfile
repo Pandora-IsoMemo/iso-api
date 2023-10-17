@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     libsodium-dev \
     && installPackage
 
-EXPOSE 8001
+EXPOSE 8000
 
 # Command runs when the container launches
 # https://docs.docker.com/engine/reference/builder/#cmd
