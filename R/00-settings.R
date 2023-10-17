@@ -18,15 +18,12 @@ settings <- list2env(list(
   invisible(NULL)
 }
 
-# #' Get Port
-# #'
-# #' @export
-# getPort <- function() {
-#   if (Sys.getenv("PORT") != "") {
-#     port <- Sys.getenv("PORT")
-#   } else {
-#     port <- Sys.getenv("PORT_DEFAULT")
-#   }
-#
-#   port %>% as.numeric()
-# }
+getPort <- function() {
+  if (Sys.getenv("PORT") != "") {
+    port <- Sys.getenv("PORT")
+  } else {
+    port <- Sys.getenv("PORT_DEFAULT")
+  }
+
+  port %>% as.numeric()
+}
