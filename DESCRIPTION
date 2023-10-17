@@ -1,7 +1,7 @@
 Package: MpiIsoApi
 Title: API for the MPI Iso Database
 Description: Retrieve data from the MPI Iso Database.
-Version: 22.02.1
+Version: 23.04.1.8
 Author: INWT Statistics GmbH
 Maintainer: INWT <info@inwt-statistics.de>
 Copyright: (c) 2018 INWT Statistics GmbH. All Rights Reserved.

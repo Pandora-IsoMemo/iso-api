@@ -18,7 +18,7 @@ You can use the following parameters:
 Example call:
 
 - https://isomemodb.com/api/v1/iso-data?dbsource=LiVES&category=Location&field=site,longitude
-- beta version: https://isomemodb.com/testapi/v1/iso-data?dbsource=LiVES&category=Location&field=site,longitude
+- beta version: https://isomemodb.com/testapi/v1/iso-data?mappingId=IsoMemo&dbsource=LiVES&category=Location&field=site,longitude
 
 ### Helper endpoints
 

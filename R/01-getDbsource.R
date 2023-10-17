@@ -1,7 +1,8 @@
-getDbsource <- function() {
-  sendQueryCache("dbsource")$dbsource
+getDbsource <- function(mappingId = "IsoMemo") {
+  # only accepts a single mappingId
+  sendQueryCache("dbsource", mappingId = mappingId)$dbsource
 }
 
-getDbsourceList <- function(){
-  Result(list(), dbsource = as.list(getDbsource()))
+getDbsourceList <- function(x, mappingId = "IsoMemo"){
+  Result(x, dbsource = as.list(getDbsource(mappingId = mappingId)))
 }

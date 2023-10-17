@@ -1,36 +1,31 @@
-# prevent NOTE in R CMD CHECK because of
-# spread(..., variable, value)
-if(getRversion() >= "2.15.1") utils::globalVariables(c("variable", "value"))
-
-getIsoData <- function(x, dbsource, category, field) {
-  res <- sendQueryCache("isoData", dbsource = dbsource)
-
+getIsoData <- function(x, dbsource, category, field, mappingId = "IsoMemo") {
+  res <- sendQueryCache("isoData", dbsource = dbsource, mappingId = mappingId)
   data <- res[[1]]
-  extraNumeric <- spread(res[[2]], variable, value)
-  extraCharacter <- spread(res[[3]], variable, value)
+  extraNumeric <- spread(res[[2]], .data$variable, .data$value)
+  extraCharacter <- spread(res[[3]], .data$variable, .data$value)
 
   data <- data %>%
     left_join(extraNumeric, by = c("id", "source")) %>%
     left_join(extraCharacter, by = c("id", "source")) %>%
-    selectCategory(category)
+    selectCategory(category, mappingId = mappingId)
 
   field <- intersect(field, names(data))
 
   data <- data %>%
     select(field)
 
-  res <- sendQueryCache("lastUpdate")
+  res <- sendQueryCache("lastUpdate", mappingId = mappingId)
   lastUpdate <- res$lastUpdate
 
   Result(x, isodata = data, updated = lastUpdate)
 }
 
 
-selectCategory <- function(data, category){
+selectCategory <- function(data, category, mappingId = "IsoMemo"){
   shiny <- NULL
   if (is.null(category)) return(data)
 
-  mapping <- sendQueryCache("mapping")
+  mapping <- sendQueryCache("mapping", mappingId = mappingId)
   fields <- mapping %>%
     filter(category %in% !!category) %>%
     pull(shiny) %>%

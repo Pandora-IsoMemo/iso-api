@@ -15,11 +15,11 @@ pipeline {
       steps {
         sh '''
                 mkdir -p .inwt/MpiIsoApi
-                cp -f $CREDENTIALS .inwt/MpiIsoApi/mpi-iso-api-config.R
+                cp -f $CREDENTIALS .inwt/MpiIsoApi/mpi-iso-api-test-config.R
                 docker build --pull -t tmp-$CUR_PROJ-$TMP_SUFFIX $CUR_PKG_FOLDER
                 docker run --rm --network host tmp-$CUR_PROJ-$TMP_SUFFIX check
                 docker rmi tmp-$CUR_PROJ-$TMP_SUFFIX
-                rm -f .inwt/MpiIsoApi/mpi-iso-api-config.R
+                rm -f .inwt/MpiIsoApi/mpi-iso-api-test-config.R
                 '''
       }
     }

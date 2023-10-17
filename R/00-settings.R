@@ -1,9 +1,8 @@
 settings <- list2env(list(
   homeDir = "~/.inwt/MpiIsoApi",
-  config = "mpi-iso-api-config.R",
-  host = "127.0.0.1",
+  config = "mpi-iso-api-test-config.R",
   port = 3306,
-  dbname = "mpiIso"
+  dbname = "mpiIsoTest"
 ))
 
 .onLoad <- function(libname, pkgname) {
@@ -14,7 +13,20 @@ settings <- list2env(list(
     if (file.exists(settings$config))
       source(settings$config, settings)
     else
-      source(sprintf("%s/%s", settings$homeDir, settings$config), settings)
+      source(file.path(settings$homeDir, settings$config), settings)
   })
   invisible(NULL)
+}
+
+#' Get Port
+#'
+#' @export
+getPort <- function() {
+  if (Sys.getenv("PORT") != "") {
+    port <- Sys.getenv("PORT")
+  } else {
+    port <- Sys.getenv("PORT_DEFAULT")
+  }
+
+  port %>% as.numeric()
 }
